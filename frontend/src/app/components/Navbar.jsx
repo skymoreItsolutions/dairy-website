@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { IoCartOutline } from "react-icons/io5";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,17 +15,18 @@ export default function Navbar() {
        
      
 
-      <nav className="bg-white p-4 shadow-md sticky top-0 z-50">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="text-black text-2xl font-bold">
-            <Link href="/">MyCompany</Link>
+      <nav className="bg-white p-4 shadow-md sticky top-0 z-50 px-20">
+        <div className="container mx-auto justify-between flex  items-center">
+          <div className="text-black  text-2xl font-bold">
+            <Link href="/">
+            <img className='h-[68px]' src='/logo.png' />
+            </Link>
           </div>
 
-          <div className="hidden md:flex space-x-6 items-center">
+          <div className="hidden md:flex  space-x-8 items-center">
             <Link href="/" className="text-black hover:text-gray-600">Home</Link>
             <Link href="/about" className="text-black hover:text-gray-600">About</Link>
-            <Link href="/jobs" className="text-black hover:text-gray-600">Jobs</Link>
-            <Link href="/project" className="text-black hover:text-gray-600">Project</Link>
+            <Link href="/products" className="text-black hover:text-gray-600">Products</Link>
 
             <Link href="/blog" className="text-black hover:text-gray-600">Blog</Link>
             <Link href="/contact" className="text-black hover:text-gray-600">Contact</Link>
@@ -33,7 +35,13 @@ export default function Navbar() {
            
           </div>
 
-          {/* Mobile Menu Toggle */}
+          <div>
+            <span className='text-4xl'>
+            <IoCartOutline/>
+            </span>
+          </div>
+
+
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
